@@ -49,7 +49,9 @@ export function makeCounter(initial: number): Counter {
 // n queda capturado en el closure — heap-dynamic-implicit.
 // makeAdder(3)(4) → 7
 export function makeAdder(n: number): (x: number) => number {
-  return (x: number) => n + x;
+  return function (x: number): number {
+    return x + n;
+  };
 }
 
 // 3d. Crea un acumulador que inicia en 0.
